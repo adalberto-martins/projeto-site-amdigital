@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>AM Digital — Prototype</title>
+  <meta name="description" content="AM Digital — Desenvolvimento de sites, sistemas e manutenção de computadores" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    /* ==========================
+       Variáveis de tema (paleta extraída da logo)
+       ========================== */
+    :root{
+      --verde:#00b050;
+      --azul:#0070c0;
+      --vermelho:#e43b3b;
+      --preto:#0b0b0b;
+      --branco:#ffffff;
+      --fundo: #f6f8fb;
+      --raio:14px;
+      --max-w:1100px;
+      --container-pad:24px;
+      --glass: rgba(255,255,255,0.75);
+    }
+
+    /* Reset + base */
+    *{box-sizing:border-box;margin:0;padding:0}
+    html,body{height:100%;font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; color:#12202b}
+    body{background:var(--fundo);padding:20px;overflow-x:hidden}
+    img{max-width:100%;height:auto;display:block}
+
+    /* Layout central */
+    .page{max-width:var(--max-w);margin:28px auto;padding:24px;background:var(--branco);border-radius:var(--raio);box-shadow:0 10px 30px rgba(15,20,30,0.06)}
+
+    /* Header */
+    header{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:10px 6px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand img{width:110px}
+    nav{display:flex;gap:18px;align-items:center}
+    nav a{font-weight:600;color:rgba(10,20,30,0.85);text-decoration:none}
+    .cta{padding:10px 14px;border-radius:10px;background:linear-gradient(90deg,var(--vermelho),#ff6b6b);color:var(--branco);font-weight:700}
+
+    /* Mobile menu */
+    .menu-btn{display:none;background:none;border:0;font-size:20px;cursor:pointer}
+
+    /* Hero */
+    .hero{margin-top:10px;border-radius:10px;overflow:hidden}
+    .hero-visual{background:linear-gradient(135deg,var(--azul),var(--verde));padding:72px 28px;display:flex;align-items:center;justify-content:space-between;gap:28px}
+    .hero-copy{max-width:60%}
+    .hero h1{font-size:36px;line-height:1.05;color:var(--branco);font-weight:800;margin-bottom:18px}
+    .hero p{color:rgba(255,255,255,0.9);margin-bottom:22px}
+    .btn-primary{background:var(--branco);color:var(--azul);padding:12px 18px;border-radius:10px;font-weight:700;border:0;box-shadow:0 6px 18px rgba(0,0,0,0.12);cursor:pointer}
+    .btn-ghost{background:transparent;border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.95);padding:10px 14px;border-radius:10px}
+    .hero-art{flex:1}
+
+    /* Sections */
+    .section{padding:48px 6px}
+    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+    h2{font-size:24px;margin-bottom:18px}
+    p.lead{color:#3b5662}
+
+    /* Cards */
+    .card{background:linear-gradient(180deg,rgba(255,255,255,0.9),var(--branco));border-radius:12px;padding:18px;box-shadow:0 6px 18px rgba(20,30,40,0.04);border:1px solid rgba(10,20,30,0.03)}
+    .icon{width:56px;height:56px;border-radius:10px;display:grid;place-items:center;font-size:26px}
+
+    /* Serviços: grid responsivo */
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 18px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .service .title{font-weight:700;margin-top:12px}
+    .service small{display:block;margin-top:10px;color:#6b7b86}
+
+    /* Portfólio */
+    .portfolio-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:14px}
+    .thumb{border-radius:8px;overflow:hidden;cursor:pointer}
+
+    /* Contato (form) */
+    .contato-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 18px;
+      width: 100%;
+      box-sizing: border-box;
+      align-items: start;
+    }
+    form {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      width: 100%;
+    }
+    input,textarea,button{padding:12px;border-radius:10px;border:1px solid rgba(10,20,30,0.08);font-family:inherit}
+    textarea{grid-column:1/3;min-height:120px;resize:vertical}
+    .btn-enviar{background:linear-gradient(90deg,var(--azul),var(--verde));color:var(--branco);border:0;margin-top:6px;cursor:pointer;grid-column:1/3;font-weight:600}
+    .contato-info{display:flex;flex-direction:column;gap:12px}
+
+    /* Localização (mapa) */
+    .contato-local {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 18px;
+      align-items: start;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .contato-local .card { padding:20px }
+    .mapa iframe { width:100%; height:300px; border-radius:12px; border:0 }
+
+    /* Footer */
+    footer{padding:22px 6px;border-top:1px solid rgba(10,20,30,0.04);margin-top:18px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+
+    /* Responsividade */
+    @media(max-width:900px){
+      .hero-visual{flex-direction:column;align-items:flex-start;padding:36px}
+      .hero-copy{max-width:100%}
+      .brand img{width:90px}
+      .grid{grid-template-columns:1fr}
+      .services{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+      .portfolio-grid{grid-template-columns:repeat(2,1fr)}
+      nav{display:none}
+      .menu-btn{display:block}
+    }
+    @media(max-width:520px){
+      .services{grid-template-columns:1fr}
+      .portfolio-grid{grid-template-columns:1fr}
+      form{grid-template-columns:1fr}
+      textarea{grid-column:1/2}
+      .hero h1{font-size:28px}
+      .rota-btn{text-align:center}
+      .btn-rota{width:100%}
+    }
+
+    /* Pequenos detalhes */
+    .muted{color:#6b7880}
+    .center{display:flex;align-items:center;justify-content:center}
+    .rota-btn{margin-top:12px;text-align:right}
+    .btn-rota{display:inline-block;background:linear-gradient(90deg,var(--azul),var(--verde));color:var(--branco);text-decoration:none;padding:12px 18px;border-radius:10px;font-weight:600;box-shadow:0 6px 18px rgba(0,0,0,0.12);transition:transform 0.2s ease,opacity 0.3s ease}
+    .btn-rota:hover{opacity:0.95;transform:translateY(-2px)}
+  </style>
+</head>
+<body>
+  <div class="page" role="main">
+    <header>
+      <div class="brand">
+        <img src="/mnt/data/logo amdigital_cor1.png" alt="AM Digital - logo">
+      </div>
+
+      <nav aria-label="Menu principal">
+        <a href="#inicio">Início</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#portfolio">Portfólio</a>
+        <a href="#contato">Contato</a>
+        <a href="#localizacao">Onde estamos</a>
+      </nav>
+
+      <div style="display:flex;gap:12px;align-items:center">
+        <button class="cta" onclick="document.getElementById('contato').scrollIntoView({behavior:'smooth'})">Solicitar Orçamento</button>
+        <button class="menu-btn" aria-expanded="false" aria-label="Abrir menu">☰</button>
+      </div>
+    </header>
+
+    <!-- HERO -->
+    <section id="inicio" class="hero">
+      <div class="hero-visual">
+        <div class="hero-copy">
+          <h1>Transformamos ideias em experiências digitais.</h1>
+          <p class="lead">Soluções de desenvolvimento de sites, sistemas e manutenção de computadores — com estratégia, qualidade e suporte.</p>
+          <div style="display:flex;gap:12px">
+            <button class="btn-primary" onclick="document.getElementById('contato').scrollIntoView({behavior:'smooth'})">Solicitar Orçamento</button>
+            <button class="btn-ghost" onclick="document.getElementById('sobre').scrollIntoView({behavior:'smooth'})">Saiba mais</button>
+          </div>
+        </div>
+
+        <div class="hero-art center" aria-hidden="true">
+          <svg width="260" height="140" viewBox="0 0 260 140" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="g1" x1="0" x2="1">
+                <stop offset="0" stop-color="#0070c0" />
+                <stop offset="1" stop-color="#00b050" />
+              </linearGradient>
+            </defs>
+            <rect x="0" y="20" width="260" height="100" rx="18" fill="url(#g1)" opacity="0.18" />
+            <path d="M10 110 C65 30,195 30,250 110" stroke="url(#g1)" stroke-width="10" stroke-linecap="round" fill="none" stroke-opacity="0.95"/>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOBRE -->
+    <section id="sobre" class="section">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px;align-items:start">
+        <div>
+          <h2>Sobre nós</h2>
+          <p class="lead">Nós somos a <strong>AM Digital</strong>, uma empresa especializada em soluções tecnológicas. Atuamos no desenvolvimento de sites, sistemas personalizados e manutenção de computadores. Nosso objetivo é conectar pessoas e negócios através da tecnologia.</p>
+          <p class="muted">Equipe ágil, processos transparentes e foco em resultados.</p>
+        </div>
+
+        <div style="display:flex;flex-direction:column;gap:12px">
+          <div class="card center" style="flex-direction:row;gap:12px">
+            <div class="icon" style="background:linear-gradient(180deg,var(--verde),#34d399);color:var(--branco)">💡</div>
+            <div style="text-align:left">
+              <strong>Inovação</strong>
+              <div class="muted">Metodologia e experimentação contínua</div>
+            </div>
+          </div>
+
+          <div class="card center" style="flex-direction:row;gap:12px">
+            <div class="icon" style="background:linear-gradient(180deg,var(--azul),#2b9be6);color:var(--branco)">🎨</div>
+            <div style="text-align:left">
+              <strong>Design</strong>
+              <div class="muted">Interfaces intuitivas e memoráveis</div>
+            </div>
+          </div>
+
+          <div class="card center" style="flex-direction:row;gap:12px">
+            <div class="icon" style="background:linear-gradient(180deg,var(--vermelho),#ff7b7b);color:var(--branco)">⚙️</div>
+            <div style="text-align:left">
+              <strong>Tecnologia</strong>
+              <div class="muted">Implementação robusta e escalável</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVIÇOS -->
+    <section id="servicos" class="section">
+      <h2>Serviços</h2>
+      <div class="services" aria-label="Lista de serviços">
+        <div class="card service">
+          <div class="center"><div class="icon" style="background:rgba(0,176,80,0.08);color:var(--verde)">🖥️</div></div>
+          <div class="title">Desenvolvimento Web</div>
+          <small>Criação de sites modernos, responsivos e otimizados.</small>
+        </div>
+
+        <div class="card service">
+          <div class="center"><div class="icon" style="background:rgba(0,112,192,0.08);color:var(--azul)">⚙️</div></div>
+          <div class="title">Sistemas Personalizados</div>
+          <small>Desenvolvimento de sistemas empresariais sob medida.</small>
+        </div>
+
+        <div class="card service">
+          <div class="center"><div class="icon" style="background:rgba(228,59,59,0.08);color:var(--vermelho)">🧰</div></div>
+          <div class="title">Manutenção de Computadores</div>
+          <small>Assistência técnica, upgrades e suporte completo.</small>
+        </div>
+
+        <div class="card service">
+          <div class="center"><div class="icon" style="background:rgba(0,176,80,0.08);color:var(--verde)">📈</div></div>
+          <div class="title">SEO & Suporte</div>
+          <small>Otimização e manutenção contínua.</small>
+        </div>
+      </div>
+    </section>
+
+    <!-- PORTFÓLIO -->
+    <section id="portfolio" class="section">
+      <h2>Portfólio</h2>
+      <div class="portfolio-grid">
+        <div class="thumb card" onclick="openProject(1)" style="height:140px;background:linear-gradient(135deg,rgba(0,112,192,0.08),rgba(0,176,80,0.06))"> <div style="padding:12px">Projeto A</div></div>
+        <div class="thumb card" onclick="openProject(2)" style="height:140px;background:linear-gradient(135deg,rgba(228,59,59,0.06),rgba(0,112,192,0.06))"> <div style="padding:12px">Projeto B</div></div>
+        <div class="thumb card" onclick="openProject(3)" style="height:140px;background:linear-gradient(135deg,rgba(0,176,80,0.06),rgba(228,59,59,0.06))"> <div style="padding:12px">Projeto C</div></div>
+      </div>
+    </section>
+
+    <!-- CONTATO (formulário local) -->
+    <section id="contato" class="section">
+      <h2>Contato</h2>
+      <div class="contato-grid">
+        <div class="card">
+          <form id="contactForm" onsubmit="submitForm(event)">
+            <input type="text" name="nome" placeholder="Seu nome" required />
+            <input type="email" name="email" placeholder="Seu email" required />
+            <input type="text" name="assunto" placeholder="Assunto" />
+            <textarea name="mensagem" placeholder="Escreva sua mensagem" required></textarea>
+            <button type="submit" class="btn-enviar">Enviar Mensagem</button>
+          </form>
+        </div>
+
+        <div class="contato-info">
+          <div class="card">
+            <strong>Endereço</strong>
+            <div class="muted">Rua Exemplo, 123 - Centro, São Paulo - SP</div>
+          </div>
+          <div class="card">
+            <strong>WhatsApp</strong>
+            <div class="muted"><a href="https://wa.me/5511999999999" target="_blank" style="color:inherit;text-decoration:none">+55 11 99999-9999</a></div>
+          </div>
+          <div class="card">
+            <strong>E-mail</strong>
+            <div class="muted"><a href="mailto:contato@amdigital.com.br" style="color:inherit;text-decoration:none">contato@amdigital.com.br</a></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ONDE ESTAMOS (MAPA) -->
+    <section id="localizacao" class="section">
+      <h2>Onde estamos</h2>
+      <div class="contato-local">
+        <div class="card">
+          <h3 style="margin-bottom:10px;">AM Digital - Unidade São Paulo</h3>
+          <p class="muted">Rua Exemplo, 123 - Centro<br>São Paulo - SP, Brasil</p>
+          <p>
+            📞 <a href="tel:+5511999999999" style="color:var(--azul);text-decoration:none;">(11) 99999-9999</a><br>
+            💬 <a href="https://wa.me/5511999999999" target="_blank" style="color:var(--verde);text-decoration:none;">WhatsApp</a><br>
+            ✉️ <a href="mailto:contato@amdigital.com.br" style="color:var(--vermelho);text-decoration:none;">contato@amdigital.com.br</a>
+          </p>
+          <p class="muted" style="margin-top:10px;">Horário de atendimento: Seg a Sex, das 9h às 18h</p>
+        </div>
+
+        <div class="mapa card" aria-hidden="false">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3656.891693317254!2d-46.63330948447472!3d-23.5505199846867!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce59b5a2d55555%3A0x123456789abcdef!2sSão%20Paulo%20-%20SP!5e0!3m2!1spt-BR!2sbr!4v1700000000000!5m2!1spt-BR!2sbr"
+            width="100%"
+            height="300"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade">
+          </iframe>
+
+          <div class="rota-btn">
+            <a href="https://www.google.com/maps/dir/?api=1&destination=Rua+Exemplo,+123,+São+Paulo,+SP" target="_blank" class="btn-rota">
+              📍 Traçar rota no Google Maps
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div style="display:flex;gap:12px;align-items:center">
+        <img src="/mnt/data/logo amdigital_cor1.png" alt="AM Digital" style="width:86px" />
+        <div class="muted">© AM Digital — Todos os direitos reservados</div>
+      </div>
+      <div class="muted">Feito com ♥ por AM Digital</div>
+    </footer>
+  </div>
+
+  <script>
+    // Menu móvel simples (toggle)
+    const menuBtn = document.querySelector('.menu-btn');
+    const nav = document.querySelector('nav');
+    menuBtn && menuBtn.addEventListener('click', ()=>{
+      const expanded = menuBtn.getAttribute('aria-expanded') === 'true';
+      menuBtn.setAttribute('aria-expanded', String(!expanded));
+      if(nav.style.display === 'flex') {
+        nav.style.display = 'none';
+      } else {
+        nav.style.display = 'flex';
+        nav.style.flexDirection = 'column';
+        nav.style.position = 'absolute';
+        nav.style.top = '78px';
+        nav.style.right = '32px';
+        nav.style.background = 'var(--glass)';
+        nav.style.backdropFilter = 'blur(6px)';
+        nav.style.padding = '12px';
+        nav.style.borderRadius = '12px';
+        nav.style.boxShadow = '0 10px 30px rgba(15,20,30,0.08)';
+      }
+    });
+
+    // Abrir projeto - placeholder
+    function openProject(id){
+      alert('Abrir projeto ' + id + ' — substitua por modal/custom lightbox.');
+    }
+
+    // Submissão fake do formulário
+    function submitForm(e){
+      e.preventDefault();
+      const f = e.target;
+      const nome = f.nome.value ? f.nome.value.trim() : '';
+      const mail = f.email.value ? f.email.value.trim() : '';
+      if(!nome || !mail){
+        alert('Preencha nome e email.');
+        return;
+      }
+      // Aqui: enviar via fetch/AJAX para backend (quando disponível)
+      f.reset();
+      alert('Mensagem enviada! (exemplo, configure envio real no backend)');
+    }
+
+    // Smooth scroll para links internos
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', (ev)=>{
+        const href = a.getAttribute('href');
+        if(href.length>1){
+          ev.preventDefault();
+          const el = document.querySelector(href);
+          if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
+        }
+      })
+    })
+  </script>
+</body>
+</html>
