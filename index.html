@@ -5,12 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home - AM Digital</title>
     <link rel="shortcut icon" href="imagens/favicon1.ico" type="image/x-icon">
+    <link rel="stylesheet" href="estilos/style.css">
 </head>
 <body>
     <div class="page" role="main">
         <header>
             <div class="brand">
-                <img src="imagens/logo amdigital 200x200.jpg" alt="AM Digital - logo">
+                <img src="imagens/logo amdigital.jpg" alt="AM Digital - logo">
             </div>
             <nav aria-label="Menu principal">
                 <a href="#">Início</a>
@@ -20,8 +21,8 @@
                 <a href="#">Contatos</a>
             </nav>
             <div>
-                <button>Solicitar Orçamento</button>
-                <button>☰</button>
+                <button class="cta">Solicitar Orçamento</button>
+                <button class="menu-btn" aria-expanded="false" aria-label="Abrir menu">☰</button>
             </div>
         </header>
         <section id="inicio" class="hero">
@@ -29,9 +30,9 @@
                 <div class="hero-copy">
                     <h1>Transformamos ideas em experiências digitais.</h1>
                     <p class="lead">Soluções de design, marca e tecnologia pensadas para conectar sua marca ao usuário certo — com estratégia e beleza.</p>
-                    <div>
-                        <button>Solicitar Orçamento</button>
-                        <button>Saiba mais</button>
+                    <div style="display: flex;gap:12px">
+                        <button class="btn-primary">Solicitar Orçamento</button>
+                        <button class="btn-ghost">Saiba mais</button>
                     </div>
                 </div>
                 <div class="hero-art center">
