@@ -1,0 +1,27 @@
+@media screen and (max-width:900px){
+    .hero-visual{flex-direction:column;align-items:flex-start;padding:36px}
+    .hero-copy{max-width:100%}
+    .brand img{width:90px}
+    .grid{grid-template-columns:1fr}
+    .services{grid-template-columns:repeat(2,1fr)}
+    .portfolio-grid{grid-template-columns:repeat(2,1fr)}
+    nav{display:none}
+    .menu-btn{display:block}
+}
+@media screen and (max-width:520px){
+    .services{grid-template-columns:1fr}
+    .portfolio-grid{grid-template-columns:1fr}
+    form{grid-template-columns:1fr}
+    .hero h1{font-size:28px}
+}
+
+@media screen and (max-width:380px) {
+    .muted{
+        color: #6b7880;    
+    }
+
+    .center {
+        display:flex;
+        align-items: center;
+        justify-content: center;}
+    }
