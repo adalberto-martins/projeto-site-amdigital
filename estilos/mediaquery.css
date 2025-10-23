@@ -1,13 +1,57 @@
 @media screen and (max-width:900px){
-    .hero-visual{flex-direction:column;align-items:flex-start;padding:36px}
-    .hero-copy{max-width:100%}
-    .brand img{width:90px}
-    .grid{grid-template-columns:1fr}
-    .services{grid-template-columns:repeat(2,1fr)}
-    .portfolio-grid{grid-template-columns:repeat(2,1fr)}
-    nav{display:none}
-    .menu-btn{display:block}
+    .hero-visual {
+        flex-direction:column;
+        align-items:flex-start;
+        padding:36px
+    }
+
+    .hero-copy {
+        max-width:100%;
+    }
+
+    .brand img {
+        width:90px;
+    }
+
+    .grid {
+        grid-template-columns:1fr;
+    }
+
+    .services {
+        grid-template-columns:repeat(2,1fr);
+    }
+    .portfolio-grid {
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    nav {
+        display:none;
+    }
+
+    .menu-btn {
+        display:block;
+    }
+
+    #sobre > div {
+        grid-template-columns: 1fr;
+    }
+
+    #contato > div {
+        grid-template-columns: 1fr;
+    }
+
+    .page,.section {
+        overflow: hidden;
+        max-width: 100vw;
+    }
 }
+
+@media screen and (max-width:600px){
+    .mapa iframe {
+        min-height: 260px;
+    }
+}
+
 @media screen and (max-width:520px){
     .services{grid-template-columns:1fr}
     .portfolio-grid{grid-template-columns:1fr}

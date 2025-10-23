@@ -21,7 +21,7 @@
 
 html, body {
     height: 100%;
-    font-family: 'Inter',system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    font-family: 'Inter','system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial';
     color: #12202b; 
 }
 
@@ -188,11 +188,8 @@ p.lead{
 
 .services {
     display: grid;
-    grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
-    gap: 18px;
-    width: 100%;
-    box-sizing: border-box;
-    overflow: hidden;
+    grid-template-columns: repeat(4,1fr);
+    gap: 18px;  
 }
 
 .service .title {
@@ -233,6 +230,51 @@ input,textarea, button {
 textarea {
     grid-column: 1/3;
     min-height: 120px;
+}
+
+.contato-local {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 18px;
+    align-items: start;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.contato-local .card {
+    background: linear-gradient(180deg,rgba(255,255,255,0.9), var(--branco));
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(15,20,30,0.05);
+}
+
+.mapa iframe {
+    width: 100%;
+    height: 100%;
+    min-height: 300px;
+    border-radius: 12px;
+}
+
+.rota-btn {
+    margin-top: 12px;
+    text-align: right;
+}
+
+.btn-rota {
+    display: inline-block;
+    background: linear-gradient(90deg, var(--azul), var(--verde));
+    color: var(--branco);
+    text-decoration: none;
+    padding: 12px 18px;
+    border-radius: 10px;
+    font-weight: 600;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+    transition: transform 0.2s ease, opacity 0.3s ease;
+}
+
+.btn-rota:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
 }
 
 footer {
