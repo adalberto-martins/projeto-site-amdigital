@@ -6,6 +6,7 @@
     <title>Home - AM Digital</title>
     <link rel="shortcut icon" href="imagens/favicon1.ico" type="image/x-icon">
     <link rel="stylesheet" href="estilos/style.css">
+    <link rel="stylesheet" href="estilos/mediaquery.css">
 </head>
 <body>
     <div class="page" role="main">
@@ -52,22 +53,22 @@
             </div>
         </section>
         <section id="sobre" class="section">
-            <div>
+            <div style="display: grid;grid-template-columns: 1fr 320px;gap: 22px;align-items: start">
                 <div>
                     <h2>Sobre nós</h2>
-                    <p>Nós somos a <strong>AM Digital</strong>, uma agência que transforma ideas em experiências digitais. Juntamos estratégia, design e tecnologia para construir produtos que funcionam e que encantam.</p>
-                    <p>Equipe ágil, processos transparentes e foco em resultados.</p>
+                    <p class="lead">Nós somos a <strong>AM Digital</strong>, uma agência que transforma ideas em experiências digitais. Juntamos estratégia, design e tecnologia para construir produtos que funcionam e que encantam.</p>
+                    <p class="muted">Equipe ágil, processos transparentes e foco em resultados.</p>
                 </div>
-                <div>
+                <div style="display: flex;flex-direction: column;gap: 12px;">
                     <div class="card center">
-                        <div class="icon">💡</div>
+                        <div class="icon" style="background: linear-gradient(180deg,var(--verde),#34d399);color:var(--branco)">💡</div>
                         <div>
                             <strong>Inovação</strong>
                             <div class="muted">Metodologia e experimentação contínua</div>
                         </div>
                     </div>
                     <div class="card center">
-                        <div class="icon">🎨</div>
+                        <div class="icon" style="background: linear-gradient(180deg,var(--azul),#2b9be6);color: var(--branco);">🎨</div>
                         <div>
                             <strong>Design</strong>
                             <div class="muted">Interfaces intuitivas e memoráveis</div>
@@ -75,7 +76,7 @@
                     </div>
         
                     <div class="card center">
-                        <div class="icon">⚙️</div>
+                        <div class="icon" style="background: linear-gradient(180deg,var(--vermelho),#ff7b7b);color: var(--branco);">⚙️</div>
                         <div>
                             <strong>Tecnologia</strong>
                             <div class="muted">Implementação robust e escalável</div>
@@ -88,48 +89,49 @@
             <h2>Serviços</h2>
             <div class="services">
                 <div class="card services">
-                    <div class="center"><div class="icon">🖥️</div></div>
+                    <div class="center"><div class="icon" style="background: rgba(0,176,80,0.08);color: var(--verde);">🖥️</div></div>
                     <div class="title">Web Design</div>
                     <small>Design responsivo, acessível e focado em conversão.</small>
                 </div>
                 <div class="card services">
-                    <div class="center"><div>📣</div></div>
+                    <div class="center"><div class="icon" style="background: rgba(228,59,59,0.08);color: var(--vermelho);">📣</div></div>
                     <div class="title">Branding</div>
                     <small>Construção de identidade and guidelines de marca.</small>
                 </div>
                 <div class="card services">
-                    <div class="center"><div>💬</div></div>
+                    <div class="center"><div class="icon" style="background: rgba(0,112,192,0.08);color: var(--azul);">💬</div></div>
                     <div class="title">Mídias Sociais</div>
                     <small>estratégia e conteúdo para engajamento.</small>
                 </div>
                 <div class="card services">
-                    <div class="center"><div>📈</div></div>
+                    <div class="center"><div class="icon" style="background: rgba(0,176,80,0.08);color: var(--verde);">📈</div></div>
                     <div class="title">SEO</div>
                     <small>Otimização técnica e conteúdo para tráfego orgânico.</small>
                 </div>
             </div>
         </section>
-        <section id="portifolio" class=" section">
+        <section id="portifolio" class="section">
             <h2>Portfólios</h2>
             <div class="portfolio-grid">
-                <div class="thumb card"><div>Projeto A</div></div>
-                <div class="thumb card"><div>Projeto B</div></div>
-                <div class="thumb card"><div>Projeto C</div></div>
+                <div class="thumb card" onclick="openProject(1)" style="height:140px;background:linear-gradient(135deg,rgba(0,112,192,0.08),rgba(0,176,80,0.06));"><div style="padding: 12px;">Projeto A</div></div>
+                <div class="thumb card" onclick="openProject(2)" style="height:140px;background:linear-gradient(135deg,rgba(228,59,59,0.06),rgba(0,112,192,0.06));"><div style="padding: 12px;">Projeto B</div></div>
+                <div class="thumb card" onclick="openProject(3)" style="height:140px;background:linear-gradient(135deg,rgba(0,176,80,0.06),rgba(228,59,59,0.06));"><div style="padding: 12px;">Projeto C</div></div>
             </div>
         </section>
         <section id="contato" class="section">
             <h2>Contato</h2>
-            <div>
+            <div style="display:grid;grid-template-columns:1fr 360px;gap: 18px;">
                 <div class="card">
-                    <form id="contactFrom" onsubmit="">
+                    <form id="contactFrom" onsubmit="submitFrom(event)">
                         <input type="text" name="nome" placeholder="Seu nome" required />
                         <input type="email" name="email" placeholder="Seu email" required />
                         <input type="text" name="assunto" placeholder="Assunto" />
                         <textarea name="mensagem" placeholder="Escreva sua mensagem" required></textarea>
-                        <button>Enviar Mensagem</button>
+                        <button type="submit" style="background: linear-gradient(90deg,var(--azul),var(--verde));color: var(--branco);border:0;margin-top:6px;cursor:pointer;">Enviar Mensagem</button>
                     </form>
                 </div>
-                <div>
+
+                <div style="display: flex;flex-direction: column;gap: 12px;">
                     <div class="card">
                         <strong>Endereço</strong>
                         <div class="muted">São Paulo, Brasil</div>
@@ -146,8 +148,8 @@
             </div>
         </section>
         <footer>
-            <div>
-                <img src="" alt="AM Digital">
+            <div style="display: flex;gap: 12px;align-items: center;">
+                <img src="imagens/logo amdigital 200x200.jpg" alt="AM Digital" style="width: 86px;">
                 <div>AM Digital — Todos os direitos reservados</div>
             </div>
             <div class="muted">Feito com ♥ por AM Digital</div>

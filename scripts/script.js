@@ -3,7 +3,7 @@ const menuBtn = document.querySelector('.menu-btn');
 const nav = document.querySelector('nav');
 menuBtn && menuBtn.addEventListener('click', ()=>{
     const expanded = menuBtn.getAttribute('aria-expanded') === 'true';
-    menuBtn.setAttribute('area-expanded', string(!expanded));
+    menuBtn.setAttribute('aria-expanded', string(!expanded));
     if(nav.style.display === 'flex') nav.style.display = 'none'; else nav.style.display = 'flex';
     nav.style.flexDirection = 'column';
     nav.style.position = 'absolute';
@@ -13,7 +13,7 @@ menuBtn && menuBtn.addEventListener('click', ()=>{
     nav.style.backdropFilter = 'blur(6px)';
     nav.style.padding = '12px';
     nav.style.borderRadius = '12px';
-    nav.style.boxShadow = '0 10px 30px rgba(12,20,30,0.08)';
+    nav.style.boxShadow = '0 10px 30px rgba(15,20,30,0.08)';
 });
 
 //
