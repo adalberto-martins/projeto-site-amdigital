@@ -28,6 +28,20 @@
         display:none;
     }
 
+    .nav-links {
+        display: none;
+        position:absolute;
+        top:80px;
+        right: 20px;
+        background: var(--glass);
+        backdrop-filter: blur(6px);
+        padding: 12px;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(15,20,30,0.08);
+        flex-direction: column;
+        gap: 12px;
+    }
+
     .menu-btn {
         display:block;
     }
@@ -50,17 +64,30 @@
     .mapa iframe {
         min-height: 260px;
     }
+    .btn-container {
+        grid-column: 1 / 2;
+    }
 }
 
 @media screen and (max-width:520px){
-    .services{grid-template-columns:1fr}
-    .portfolio-grid{grid-template-columns:1fr}
-    form{grid-template-columns:1fr}
-    .hero h1{font-size:28px}
+    .services {
+        grid-template-columns:1fr
+    }
+
+    .portfolio-grid {
+        grid-template-columns:1fr
+    }
+
+    form {
+        grid-template-columns:1fr
+    }
+    .hero h1 {
+        font-size:28px
+    }
 }
 
 @media screen and (max-width:380px) {
-    .muted{
+    .muted {
         color: #6b7880;    
     }
 

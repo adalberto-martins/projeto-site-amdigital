@@ -1,21 +1,46 @@
-// Menu móvel 
+// MENU MOBILE — toggle + fechar ao clicar fora + fechar ao clicar em link
+(function(){
 const menuBtn = document.querySelector('.menu-btn');
-const nav = document.querySelector('nav');
-menuBtn && menuBtn.addEventListener('click', ()=>{
-    const expanded = menuBtn.getAttribute('aria-expanded') === 'true';
-    menuBtn.setAttribute('aria-expanded', string(!expanded));
-    if(nav.style.display === 'flex') nav.style.display = 'none'; else nav.style.display = 'flex';
-    nav.style.flexDirection = 'column';
-    nav.style.position = 'absolute';
-    nav.style.top = '78px';
-    nav.style.right = '32px';
-    nav.style.background = 'var(--glass)';
-    nav.style.backdropFilter = 'blur(6px)';
-    nav.style.padding = '12px';
-    nav.style.borderRadius = '12px';
-    nav.style.boxShadow = '0 10px 30px rgba(15,20,30,0.08)';
+const navLinks = document.querySelector('.nav-links'); // nav com class="nav-links"
+const navAnchors = document.querySelectorAll('.nav-links a');
+
+if (!menuBtn || !navLinks) return; // garante segurança se elemento não existir
+
+// Toggle do menu
+menuBtn.addEventListener('click', (e) => {
+    e.stopPropagation(); // evita que o click dispare o listener do document
+    const isOpen = navLinks.classList.toggle('open');
+    menuBtn.setAttribute('aria-expanded', String(isOpen));
 });
 
+// Fecha o menu ao clicar em qualquer link do menu (boa UX em mobile)
+navAnchors.forEach(a => {
+    a.addEventListener('click', () => {
+    if (navLinks.classList.contains('open')) {
+        navLinks.classList.remove('open');
+        menuBtn.setAttribute('aria-expanded', 'false');
+    }
+    });
+});
+
+// Fecha o menu ao clicar fora (na página)
+document.addEventListener('click', (evt) => {
+    const target = evt.target;
+    // se o menu estiver aberto e o click não for no menu nem no botão, fecha
+    if (navLinks.classList.contains('open') && !navLinks.contains(target) && !menuBtn.contains(target)) {
+    navLinks.classList.remove('open');
+    menuBtn.setAttribute('aria-expanded', 'false');
+    }
+});
+
+// Fecha o menu ao pressionar ESC
+document.addEventListener('keydown', (evt) => {
+    if (evt.key === 'Escape' && navLinks.classList.contains('open')) {
+    navLinks.classList.remove('open');
+    menuBtn.setAttribute('aria-expanded', 'false');
+    }
+});
+})();
 //
 function openProject(id){
 alert('Abrir projeto ' + id + ' — substitua por modal/custom lightbox.');
