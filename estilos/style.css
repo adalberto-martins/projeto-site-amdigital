@@ -1,0 +1,141 @@
+@charset "UTF-8";
+
+:root {
+    --verde:#00b050;
+    --azul:#0070c0;
+    --vermelho:#e43b3b;
+    --preto:#0b0b0b;
+    --branco:#ffffff;
+    --fundo: #f6f8fb;
+    --raio:14px;
+    --max-w:1100px;
+    --container-pad:24px;
+    --glass: rgba(255,255,255,0.75);
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    font-family: 'Inter',system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    color: #12202b; 
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+.page {
+    max-width: var(--max-w);
+    margin: 28px auto;
+    padding: 24px;
+    background: var(--branco);
+    border-radius: var(--raio);
+    box-shadow: 0 10px 30px rgba(15,20,30,0.06);
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 10px 6px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.brand img {
+    width: 180px;
+}
+
+nav {
+    display: flex;
+    gap: 18px;
+    align-items: center;
+}
+
+nav a {
+    font-weight: 600;
+    color: rgba(10,20,30,0.85);
+    text-decoration: none;
+}
+
+.cta {
+    padding: 10px 14px;
+    border-radius: 10px;
+    background: linear-gradient(90deg,var(--vermelho),#ff6b6b);
+    color: var(--branco);
+    font-weight: 700;
+}
+
+.menu-btn {
+    display: none;
+    background: none;
+    border: 0;
+    font-size: 20px;
+}
+
+.hero {
+    margin-top: 10px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.hero-visual {
+    background: linear-gradient(135deg,var(--azul),var(--verde));
+    padding: 72px 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 28px;
+}
+
+.hero-copy {
+    max-width: 60%;
+}
+
+.hero h1 {
+    font-size: 36px;
+    line-height: 1.05;
+    color: var(--branco);
+    font-weight: 800;
+    margin-bottom: 18px;
+}
+
+.hero p {
+    color: rgba(255,255,255,0.9);
+    margin-bottom: 22px;
+}
+
+.btn-primary {
+    background: var(--branco);
+    color: var(--azul);
+    padding: 12px 18px;
+    border-radius: 10px;
+    font-weight: 700;
+    border: 0;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+    cursor: pointer;
+}
+
+.btn-ghost {
+    background: transparent;
+    border: 1px solid rgba(255,255,255,0.15);
+    color: rgba(255,255,255,0.95);
+    padding: 10px 14px;
+    border-radius: 10px;
+}
+
+.hero-art {
+    flex: 1;
+}
