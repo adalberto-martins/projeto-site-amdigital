@@ -98,12 +98,7 @@ nav a::after:hover {
     border-radius: 10px;
     background: linear-gradient(90deg,var(--vermelho),#ff6b6b);
     color: var(--branco);
-    font-weight: 700;
-}
-
-.cta:hover {
-    cursor: pointer;
-    transform: translateY(-2px);
+    font-weight: 700;    
 }
 
 .menu-btn {
@@ -162,7 +157,11 @@ nav a::after:hover {
     border: 1px solid rgba(255,255,255,0.15);
     color: rgba(255,255,255,0.95);
     padding: 10px 14px;
-    border-radius: 10px;
+    border-radius: 10px;    
+}
+
+.btn-ghost:hover {
+    transform: translateY(-2px);
 }
 
 .hero-art {
