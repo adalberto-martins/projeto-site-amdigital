@@ -22,11 +22,7 @@
     }
     .portfolio-grid {
         grid-template-columns:repeat(2,1fr);
-    }
-
-    nav {
-        display:none;
-    }
+    }   
 
     .nav-links {
         display: none;
@@ -41,6 +37,11 @@
         flex-direction: column;
         gap: 12px;
     }
+
+    .nav-links.open {
+    display: flex;
+    flex-direction: column;
+}
 
     .menu-btn {
         display:block;
