@@ -101,6 +101,11 @@ nav a::after:hover {
     font-weight: 700;    
 }
 
+.cta:hover {
+    cursor: pointer;
+    transform: translateY(-2px);
+}
+
 .menu-btn {
     display: none;
     background: none;
