@@ -46,7 +46,6 @@ function openProject(id){
 alert('Abrir projeto ' + id + ' — substitua por modal/custom lightbox.');
 }
 
-
 // Submissão fake do formulário
 function submitForm(e){
 e.preventDefault();
@@ -72,12 +71,10 @@ return;
     }
 })();
 
-
 // Aqui você pode adicionar fetch/ajax para enviar o formulário ao seu servidor
 f.reset();
 alert('Mensagem enviada! (exemplo, configure envio real no backend)');
 }
-
 
 // Smooth links
 document.querySelectorAll('a[href^="#"]').forEach(a=>{

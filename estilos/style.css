@@ -87,9 +87,18 @@ nav a::after {
   transition: width 0.3s;
 }
 
-nav a::after:hover {
-    width: 100%;
-    transform: translateY(-2px);
+nav a:hover::after {
+    width: 100%;    
+}
+
+nav a:hover {
+  color: var(--azul);
+  transform: translateY(-2px);
+}
+
+/* opcional: manter barra fixa no item ativo */
+nav a.active::after {
+  width: 100%;
 }
  
 
@@ -324,8 +333,8 @@ textarea {
 }
 
 .btn-rota:hover {
-  opacity: 0.9;
-  transform: translateY(-2px);
+    opacity: 0.9;
+    transform: translateY(-2px);
 }
 
 footer {
