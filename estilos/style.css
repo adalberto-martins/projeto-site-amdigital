@@ -163,7 +163,11 @@ nav a.active::after {
     font-weight: 700;
     border: 0;
     box-shadow: 0 6px 18px rgba(0,0,0,0.12);
-    cursor: pointer;
+    cursor: pointer;    
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
 }
 
 .btn-ghost {
