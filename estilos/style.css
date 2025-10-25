@@ -130,12 +130,17 @@ nav a.active::after {
 }
 
 .hero-visual {
-    background: linear-gradient(135deg,var(--azul),var(--verde));
-    padding: 72px 28px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 28px;
+  background: linear-gradient(135deg, var(--azul), var(--verde)), 
+              url('../imagens/hero-art.png') no-repeat center right; 
+  background-size: cover;
+  color: var(--branco);
+  padding: 72px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  border-radius: 12px;
+  position: relative;
 }
 
 .hero-copy {
