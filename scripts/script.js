@@ -84,5 +84,26 @@ if(href.length>1){
 ev.preventDefault();
 document.querySelector(href).scrollIntoView({behavior:'smooth'});
 }
+
+// Envio de formulário via Formspree
+document.getElementById("contactForm").addEventListener("submit", async (e) => {
+  e.preventDefault();
+  const form = e.target;
+  const dados = new FormData(form);
+
+  const resposta = await fetch(form.action, {
+    method: "POST",
+    body: dados,
+    headers: { Accept: "application/json" },
+  });
+
+  if (resposta.ok) {
+    alert("Mensagem enviada com sucesso! 👍");
+    form.reset();
+  } else {
+    alert("Erro ao enviar a mensagem. Tente novamente mais tarde.");
+  }
+});
+
 })
 })

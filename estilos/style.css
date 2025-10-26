@@ -130,17 +130,12 @@ nav a.active::after {
 }
 
 .hero-visual {
-  background: linear-gradient(135deg, var(--azul), var(--verde)), 
-              url('../imagens/hero-art.png') no-repeat center right; 
-  background-size: cover;
-  color: var(--branco);
+  background: linear-gradient(135deg, var(--azul), var(--verde)); 
   padding: 72px 28px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 28px;
-  border-radius: 12px;
-  position: relative;
+  gap: 28px;  
 }
 
 .hero-copy {
@@ -208,6 +203,7 @@ h2 {
 
 p.lead{
     color: #3b5662;
+    text-indent: 50px;
 }
 
 .card {

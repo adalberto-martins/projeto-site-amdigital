@@ -6,6 +6,7 @@
     <title>Home - AM Digital</title>
     <link rel="shortcut icon" href="imagens/favicon1.ico" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/e2c5db69a2.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="estilos/style.css">
     <link rel="stylesheet" href="estilos/mediaquery.css">
 </head>
@@ -37,22 +38,11 @@
                     <p class="lead">Soluções de design, marca e tecnologia pensadas para conectar sua marca ao usuário certo — com estratégia e beleza.</p>
                     <div style="display: flex;gap:12px">
                         <button class="btn-primary" onclick="document.getElementById('contato').scrollIntoView({behavior:'smooth'})">Solicitar Orçamento</button>
-                        <button class="btn-ghost">Saiba mais</button>
+                        <button class="btn-ghost"><a href="saibamais.html">Saiba mais</a></button>
                     </div>
                 </div>
                 <div class="hero-art center">
-                    <svg width="260" height="140" viewBox="0 0 260 140" xmlns="http://www.w3.org/2000/svg" aria-hidden>
-                        <defs>
-                            <linearGradient id="g1" x1="0" x2="1">
-                                <stop offset="0" stop-color="var(--azul)" />
-                                <stop offset="1" stop-color="var(--verde)" />
-                            </linearGradient>
-                        </defs>
-                        <rect x="0" y="20" width="260" height="100" rx="18" fill="url(#g1)" opacity="0.18" />
-                        <g fill="none" stroke="url(#g1)" stroke-width="10" stroke-linecap="round">
-                            <path d="M10 110 C65 30,195 30,250 110" stroke-opacity="0.95" />
-                        </g>
-                    </svg>
+                    <img src="imagens/Ribbons Coloridos em Movimento.png" alt="logo-marca">
                 </div>
             </div>
         </section>
@@ -60,8 +50,10 @@
             <div style="display: grid;grid-template-columns: 1fr auto;gap:18px;align-items: start">
                 <div>
                     <h2>Sobre nós</h2>
-                    <p class="lead">Nós somos a <strong>AM Digital</strong>, uma agência que transforma ideas em experiências digitais. Juntamos estratégia, design e tecnologia para construir produtos que funcionam e que encantam.</p>
-                    <p class="muted">Equipe ágil, processos transparentes e foco em resultados.</p>
+                    <p class="lead">A <strong>AM Digital</strong> nasceu da vontade de transformar conhecimento em soluções reais. Somos uma empresa jovem, criada com o objetivo de ajudar pessoas e pequenos negócios a estarem presentes no mundo digital de forma simples e acessível.</p></br>
+                    <p class="lead">Trabalhamos com criação de sites modernos e personalizados, feitos sob medida para cada cliente, além de oferecer serviços de manutenção e suporte em computadores.</p></br>
+                    <p class="lead">Trabalhamos com criação de sites modernos e personalizados, feitos sob medida para cada cliente, além de oferecer serviços de manutenção e suporte em computadores.</p></br>
+                    <p class="lead">Na <strong>AM Digital</strong>, acreditamos que cada projeto é uma oportunidade de crescer junto com o cliente, levando tecnologia e confiança para o dia a dia de quem empreende.</p>
                 </div>
                 <div style="display: flex;flex-direction: column;gap: 12px;">
                     <div class="card center">
@@ -125,7 +117,7 @@
         <section id="contato" class="section">
             <h2>Contato</h2>
             <div class="card">
-                <form id="contactFrom" onsubmit="submitFrom(event)">
+                <form action="https://formspree.io/f/xrbobzkg" method="POST">
                     <input type="text" name="nome" placeholder="Seu nome" required />
                     <input type="email" name="email" placeholder="Seu email" required />
                     <input type="text" name="assunto" placeholder="Assunto" />
@@ -142,8 +134,8 @@
             <h2>Onde estamos</h2>
             <div class="contato-local">
                 <div class="card">
-                    <h3 style="margin-bottom:10px;">AM Digital - Unidade São Paulo</h3>
-                    <p class="muted">Rua Exemplo, 123 - Centro<br>São Paulo - SP, Brasil</p>
+                    <h3 style="margin-bottom:10px;">AM Digital - Unidade Piracicaba</h3>
+                    <p class="muted">Rua Francisco Candido Fuequin de Campos, 104 - Jd Castor<br>Piracicaba - SP, Brasil</p>
                     <p>
                         📞 <a href="tel:+5519983242584" style="color:var(--azul);text-decoration:none;">(19) 98324-2584</a><br>
                         💬 <a href="https://wa.me/5519983242584" target="_blank" style="color:var(--verde);text-decoration:none;">WhatsApp</a><br>
@@ -175,7 +167,7 @@
 
         <footer>
             <div style="display: flex;gap: 12px;align-items: center;">
-                <img src="imagens/logo amdigital 200x200.jpg" alt="AM Digital" style="width: 86px;">
+                <img src="imagens/hero-art.png" alt="AM Digital" style="width: 86px;">
                 <div id="copyright-text">&copy;<span id="current-year">2025</span> AM Digital — Todos os direitos reservados</div>
             </div>
             <div class="muted">Feito com ♥ por AM Digital</div>
