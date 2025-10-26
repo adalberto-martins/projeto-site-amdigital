@@ -4,9 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Saiba mais - AM Digital</title>
+    <link rel="stylesheet" href="estilos/style.css">
+    <link rel="stylesheet" href="estilos/mediaquery.css">
     <style>
         #saiba-mais .card {
-            background: linear-gradient(180deg, rgba(255,255,255,0.9), var(--branco));
+            background: linear-gradient(180deg, var(--verde), var(--azul));
             border: 1px solid rgba(10,20,30,0.05);
             box-shadow: 0 8px 20px rgba(20,30,40,0.05);
             border-radius: var(--raio);
@@ -17,6 +19,24 @@
             text-align: center;
             margin-bottom: 24px;
             color: var(--azul);
+        }
+
+        .btn-primary {
+            background: linear-gradient(90deg, var(--azul), var(--verde));
+            color: var(--branco);
+            padding: 12px 22px;
+            border-radius: 10px;
+            font-weight: 700;
+            border: 0;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+            cursor: pointer;
+            text-decoration: none;
+            transition: 0.3s ease;
+            display: inline-block;
+        }
+        .btn-primary:hover {
+            opacity: 0.9;
+            transform: scale(1.03);
         }
     </style>
 </head>
@@ -56,8 +76,8 @@
       Mais do que criar sites, queremos <strong>ajudar você a crescer com a tecnologia</strong>.
     </p>
 
-    <div style="text-align:center;margin-top:20px;">
-        <a href="#contato" class="btn-primary">Fale Conosco</a>
+    <div style="text-align:center;margin-top:30px;">
+      <a href="#contato" class="btn-primary">Fale Conosco</a>
     </div>
 
   </div>
