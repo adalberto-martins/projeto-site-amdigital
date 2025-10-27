@@ -206,6 +206,81 @@ p.lead{
     text-indent: 50px;
 }
 
+#sobre {
+  padding: 60px 20px;
+  background: var(--branco);
+  border-radius: var(--raio);
+  box-shadow: 0 10px 30px rgba(15, 20, 30, 0.05);
+  max-width: var(--max-w);
+  margin: 40px auto;
+}
+
+#sobre h2 {
+  font-size: 28px;
+  color: var(--azul);
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+#sobre p.lead {
+  color: #3b5662;
+  line-height: 1.8;
+  margin-bottom: 16px;
+}
+
+#sobre strong {
+  color: var(--azul);
+}
+
+/* Cards à direita */
+#sobre .card {
+  background: linear-gradient(180deg, rgba(255,255,255,0.9), var(--branco));
+  border-radius: 14px;
+  box-shadow: 0 6px 18px rgba(20, 30, 40, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  padding: 16px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+#sobre .card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+/* Ícones dos cards */
+#sobre .icon {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  font-size: 28px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Texto dentro dos cards */
+#sobre .card strong {
+  font-size: 16px;
+  color: var(--preto);
+}
+
+#sobre .muted {
+  color: #6b7b86;
+  font-size: 14px;
+}
+
+/* Grade principal */
+#sobre > div {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
 .card {
     background: linear-gradient(180deg,rgba(255,255,255,0.9),var(--branco));
     border-radius: 12px;
@@ -214,13 +289,27 @@ p.lead{
     border: 1px solid rgba(10,20,30,0.03);
 }
 
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
 .icon {
     width: 56px;
     height: 56px;
-    border-radius: 10px;
-    display: grid;
-    place-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;   
     font-size: 26px;
+    ;
+}
+
+div.card.service div.center div.icon {
+    display: block;
+    margin: auto;
 }
 
 .card center {
@@ -231,7 +320,7 @@ p.lead{
 .services {
     display: grid;
     grid-template-columns: repeat(4,1fr);
-    gap: 18px;  
+    gap: 18px;      
 }
 
 .service .title {
@@ -343,8 +432,6 @@ p.lead{
 .preview-container:hover .preview-img {
   transform: scale(1.05);
 }
-
-
 
 .thumb {
     border-radius: 8px;

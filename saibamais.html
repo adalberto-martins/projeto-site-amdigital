@@ -1,87 +1,152 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Saiba mais - AM Digital</title>
-    <link rel="stylesheet" href="estilos/style.css">
-    <link rel="stylesheet" href="estilos/mediaquery.css">
-    <style>
-        #saiba-mais .card {
-            background: linear-gradient(180deg, var(--verde), var(--azul));
-            border: 1px solid rgba(10,20,30,0.05);
-            box-shadow: 0 8px 20px rgba(20,30,40,0.05);
-            border-radius: var(--raio);
-            padding: 32px;
-            line-height: 1.6;
-        }
-        #saiba-mais h2 {
-            text-align: center;
-            margin-bottom: 24px;
-            color: var(--azul);
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Saiba Mais - AM Digital</title>
 
-        .btn-primary {
-            background: linear-gradient(90deg, var(--azul), var(--verde));
-            color: var(--branco);
-            padding: 12px 22px;
-            border-radius: 10px;
-            font-weight: 700;
-            border: 0;
-            box-shadow: 0 6px 18px rgba(0,0,0,0.12);
-            cursor: pointer;
-            text-decoration: none;
-            transition: 0.3s ease;
-            display: inline-block;
-        }
-        .btn-primary:hover {
-            opacity: 0.9;
-            transform: scale(1.03);
-        }
-    </style>
+  <!-- Estilos globais -->
+  <link rel="stylesheet" href="estilos/style.css">
+  <link rel="stylesheet" href="estilos/mediaquery.css">
+
+  <style>
+    body {
+      background: var(--fundo);
+      font-family: 'Inter', system-ui, sans-serif;
+      color: #12202b;
+      margin: 0;
+      padding: 20px;
+    }
+
+    .page {
+      max-width: var(--max-w);
+      margin: 0 auto;
+      background: var(--branco);
+      border-radius: var(--raio);
+      box-shadow: 0 10px 30px rgba(15,20,30,0.08);
+      padding: 40px 24px;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 40px;
+    }
+    header img {
+      width: 120px;
+    }
+
+    /* Estilo da section */
+    #saiba-mais {
+      text-align: justify;
+    }
+
+    #saiba-mais h2 {
+      text-align: center;
+      font-size: 52px;
+      color: var(--azul);
+      margin-bottom: 26px;
+    }
+
+    #saiba-mais .card {
+      background: var(--branco);
+      border: 1px solid rgba(10,20,30,0.05);
+      box-shadow: 0 8px 20px rgba(20,30,40,0.05);
+      border-radius: var(--raio);
+      padding: 32px;
+      line-height: 1.7;
+      color: #344155;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .btn-primary {
+      background: linear-gradient(90deg, var(--azul), var(--verde));
+      color: var(--branco);
+      padding: 12px 22px;
+      border-radius: 10px;
+      font-weight: 700;
+      border: none;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+      cursor: pointer;
+      text-decoration: none;
+      transition: 0.3s ease;
+      display: inline-block;
+    }
+    .btn-primary:hover {
+      opacity: 0.9;
+      transform: scale(1.03);
+    }
+
+    footer {
+      margin-top: 40px;
+      border-top: 1px solid rgba(0,0,0,0.05);
+      padding-top: 20px;
+      text-align: center;
+      color: #6b7880;
+      font-size: 14px;
+    }
+  </style>
 </head>
+
 <body>
-    
-<section id="saiba-mais" class="section">
-  <h2>Saiba Mais</h2>
+  <div class="page">
+    <header>
+      <img src="imagens/logo-na-vertical.png" alt="AM Digital Logo">
+      <nav>
+        <a href="index.html" class="btn-primary" style="font-size:14px;padding:8px 16px;">Voltar ao Início</a>
+      </nav>
+    </header>
 
-  <div class="card" style="max-width:800px;margin:0 auto;text-align:justify;">
-    <p>
-      A <strong>AM Digital</strong> nasceu com o propósito de levar tecnologia de forma simples,
-      acessível e eficiente para quem precisa dar os primeiros passos no mundo digital.
-    </p>
+    <section id="saiba-mais" class="section">
+      <h2>Saiba Mais</h2>
 
-    <p>
-      Somos uma empresa jovem e independente, criada para ajudar
-      <strong>pessoas e pequenos negócios</strong> a conquistarem presença online com
-      <strong>sites modernos, rápidos e personalizados</strong>,
-      além de oferecer <strong>serviços de manutenção e suporte técnico em computadores</strong>.
-    </p>
+      <div class="card">
+        <p>
+          A <strong>AM Digital</strong> nasceu com o propósito de levar tecnologia de forma simples,
+          acessível e eficiente para quem precisa dar os primeiros passos no mundo digital.
+        </p>
 
-    <p>
-      Nosso diferencial está em unir <strong>atendimento próximo</strong>,
-      <strong>design funcional</strong> e <strong>soluções práticas</strong>,
-      sempre pensando na melhor experiência para o cliente.
-    </p>
+        <p>
+          Somos uma empresa jovem e independente, criada para ajudar
+          <strong>pessoas e pequenos negócios</strong> a conquistarem presença online com
+          <strong>sites modernos, rápidos e personalizados</strong>,
+          além de oferecer <strong>serviços de manutenção e suporte técnico em computadores</strong>.
+        </p>
 
-    <p>
-      E estamos apenas começando! Nosso próximo passo é expandir para o
-      <strong>desenvolvimento de sistemas web completos</strong>, utilizando as principais
-      tecnologias do mercado — <strong>HTML, CSS, JavaScript, PHP, Python e MySQL</strong> —
-      para transformar ideias em resultados reais.
-    </p>
+        <p>
+          Nosso diferencial está em unir <strong>atendimento próximo</strong>,
+          <strong>design funcional</strong> e <strong>soluções práticas</strong>,
+          sempre pensando na melhor experiência para o cliente.
+        </p>
 
-    <p>
-      Na <strong>AM Digital</strong>, acreditamos que cada projeto é uma parceria.
-      Mais do que criar sites, queremos <strong>ajudar você a crescer com a tecnologia</strong>.
-    </p>
+        <p>
+          E estamos apenas começando! Nosso próximo passo é expandir para o
+          <strong>desenvolvimento de sistemas web completos</strong>, utilizando as principais
+          tecnologias do mercado — <strong>HTML, CSS, JavaScript, PHP, Python e MySQL</strong> —
+          para transformar ideias em resultados reais.
+        </p>
 
-    <div style="text-align:center;margin-top:30px;">
-      <a href="#contato" class="btn-primary">Fale Conosco</a>
-    </div>
+        <p>
+          Na <strong>AM Digital</strong>, acreditamos que cada projeto é uma parceria.
+          Mais do que criar sites, queremos <strong>ajudar você a crescer com a tecnologia</strong>.
+        </p>
 
+        <div style="text-align:center;margin-top:30px;">
+          <a href="index.html#contato" class="btn-primary">Fale Conosco</a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div style="display: flex;gap: 12px;align-items: center;">
+                <img src="imagens/hero-art.png" alt="AM Digital" style="width: 86px;">
+                <div id="copyright-text">&copy;<span id="current-year">2025</span> AM Digital — Todos os direitos reservados</div>
+            </div>
+            <div class="muted">Feito com ♥ por AM Digital</div>
+    </footer>
   </div>
-</section>
-
+  <script src="scripts/script.js"></script>
 </body>
 </html>

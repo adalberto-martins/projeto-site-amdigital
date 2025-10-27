@@ -17,11 +17,24 @@
         grid-template-columns:1fr;
     }
 
+    #sobre > div {
+    grid-template-columns: 1fr;
+    }
+  
+    #sobre .card {
+    flex-direction: column;
+    text-align: center;
+    }
+
+    #sobre .icon {
+    margin-bottom: 8px;
+    }
+
     .services {
-        grid-template-columns:repeat(2,1fr);
+        grid-template-columns:repeat(1,1fr);
     }
     .portfolio-grid {
-        grid-template-columns:repeat(2,1fr);
+        grid-template-columns:repeat(1,1fr);
     }   
 
     .nav-links {
