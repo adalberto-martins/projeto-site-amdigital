@@ -40,8 +40,9 @@
     .nav-links {
         display: none;
         position:absolute;
-        top:80px;
-        right: 20px;
+        top:140px;
+        left: 50%;
+        transform: translateX(-50%);
         background: var(--glass);
         backdrop-filter: blur(6px);
         padding: 12px;
