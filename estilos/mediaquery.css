@@ -75,12 +75,60 @@
     }
 }
 
+
+
 @media screen and (max-width:600px){
     .mapa iframe {
         min-height: 260px;
     }
     .btn-container {
         grid-column: 1 / 2;
+    }
+}
+
+/* ==== FORMULÁRIO RESPONSIVO ==== */
+@media screen and (max-width: 768px) {
+    #contato .card {
+        padding: 16px;
+        box-sizing: border-box;
+        width: 100%;
+        max-width: 100%;
+    }
+
+    #contato form {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        width: 100%;
+        box-sizing: border-box;
+        min-width: 0;
+    }
+
+    #contato form input,
+    #contato form textarea {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        padding: 12px;
+        border-radius: 10px;
+        box-sizing: border-box;
+        font-size: 15px;
+    }
+
+    #contato form textarea {
+        min-height: 120px;
+        resize: vertical;
+    }
+
+    #contato .btn-container {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+
+    #contato .btn-enviar {
+        width: 100%;
+        max-width: 260px;
     }
 }
 
@@ -91,10 +139,6 @@
 
     .portfolio-grid {
         grid-template-columns:1fr
-    }
-
-    }.card
-       display flex;
     }
 
     form {
@@ -114,5 +158,6 @@
         display:flex;
         align-items: center;
         justify-content: center;
-    }   
+    }    
 }
+
