@@ -1,3 +1,15 @@
+// Aplicar número do WhatsApp vindo da variável CSS
+(function () {
+    const rootStyles = getComputedStyle(document.documentElement);
+    const numero = rootStyles.getPropertyValue('--whatsapp-numero').replace(/"/g, "").trim();
+
+    const linkWhats = document.querySelectorAll('[data-whatsapp]');
+
+    linkWhats.forEach(link => {
+        link.href = `https://wa.me/${numero}`;
+    });
+})();
+
 // MENU MOBILE — toggle + fechar ao clicar fora + fechar ao clicar em link
 (function(){
 const menuBtn = document.querySelector('.menu-btn');
@@ -107,3 +119,4 @@ document.getElementById("contactForm").addEventListener("submit", async (e) => {
 
 })
 })
+
