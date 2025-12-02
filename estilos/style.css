@@ -15,6 +15,69 @@
 
 }
 
+/* ===== TEMA ESCURO ===== */
+html.dark {
+    --fundo: #0f1115;
+    --branco: #1a1d22;
+    --preto: #f4f4f4;
+    --glass: rgba(30,30,30,0.65);
+
+    /* Ajustes de texto */
+    --texto: #d9e1e8;
+    --texto-muted: #8b97a3;
+
+    /* Sombra mais suave no escuro */
+    --shadow: rgba(0,0,0,0.5);
+}
+
+/* Aplicar variáveis novas */
+body {
+    color: var(--texto);
+    background: var(--fundo);
+}
+
+.page {
+    background: var(--branco);
+    box-shadow: 0 10px 30px var(--shadow);
+}
+
+p.lead,
+.muted {
+    color: var(--texto-muted);
+}
+
+.card {
+    background: linear-gradient(180deg,rgba(40,40,40,0.7),var(--branco));
+    border: 1px solid rgba(255,255,255,0.04);
+}
+
+html.dark nav a {
+    color: var(--texto);
+}
+html.dark nav a:hover {
+    color: var(--azul);
+}
+
+.theme-btn {
+    display: block;
+    background: none;
+    border: 0;
+    font-size: 22px;
+    cursor: pointer;
+}
+
+html.dark strong {
+    color: var(--azul) !important;
+}
+
+html.dark footer {
+    border-top: 1px solid white;
+}
+
+html.dark div#copyright-text {
+    color: var(--texto-muted);
+}
+
 *{
     margin: 0;
     padding: 0;
@@ -200,6 +263,7 @@ nav a.active::after {
 }
 
 h2 {
+    color: var(--azul);
     font-size: 24px;
     margin-bottom: 18px;
 }
