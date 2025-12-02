@@ -117,3 +117,41 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     });
 })();
 
+// Trocar imagens no modo dark/light
+
+// Detectar preferência do sistema e aplicar automaticamente
+(function () {
+    const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const savedTheme = localStorage.getItem('theme');
+
+    // Se o usuário nunca clicou no botão, usar o tema do sistema
+    if (!savedTheme) {
+        if (prefersDark) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    }
+})();
+
+
+(function () {
+    const imgs = document.querySelectorAll(".swap-theme-img");
+
+    function updateImages() {
+        const darkMode = document.documentElement.classList.contains("dark");
+        imgs.forEach(img => {
+            img.src = darkMode ? img.dataset.dark : img.dataset.light;
+        });
+    }
+
+    // Carrega corretamente ao abrir a página
+    updateImages();
+
+    // Reexecuta quando o tema mudar
+    const btn = document.getElementById("themeToggle");
+    if (btn) {
+        btn.addEventListener("click", updateImages);
+    }
+})();
+
