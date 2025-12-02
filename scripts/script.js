@@ -11,112 +11,109 @@
 })();
 
 // MENU MOBILE — toggle + fechar ao clicar fora + fechar ao clicar em link
-(function(){
-const menuBtn = document.querySelector('.menu-btn');
-const navLinks = document.querySelector('.nav-links'); // nav com class="nav-links"
-const navAnchors = document.querySelectorAll('.nav-links a');
+(function () {
+    const menuBtn = document.querySelector('.menu-btn');
+    const navLinks = document.querySelector('.nav-links');
+    const navAnchors = document.querySelectorAll('.nav-links a');
 
-if (!menuBtn || !navLinks) return; // garante segurança se elemento não existir
+    if (!menuBtn || !navLinks) return;
 
-// Toggle do menu
-menuBtn.addEventListener('click', (e) => {
-    e.stopPropagation(); // evita que o click dispare o listener do document
-    const isOpen = navLinks.classList.toggle('open');
-    menuBtn.setAttribute('aria-expanded', String(isOpen));
-});
+    // Abrir/fechar menu
+    menuBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isOpen = navLinks.classList.toggle('open');
+        menuBtn.setAttribute('aria-expanded', String(isOpen));
+    });
 
-// Fecha o menu ao clicar em qualquer link do menu (boa UX em mobile)
-navAnchors.forEach(a => {
-    a.addEventListener('click', () => {
-    if (navLinks.classList.contains('open')) {
-        navLinks.classList.remove('open');
-        menuBtn.setAttribute('aria-expanded', 'false');
-    }
+    // Fechar ao clicar em link
+    navAnchors.forEach(a => {
+        a.addEventListener('click', () => {
+            if (navLinks.classList.contains('open')) {
+                navLinks.classList.remove('open');
+                menuBtn.setAttribute('aria-expanded', 'false');
+            }
+        });
+    });
+
+    // Fechar ao clicar fora
+    document.addEventListener('click', (evt) => {
+        const target = evt.target;
+        if (navLinks.classList.contains('open') && !navLinks.contains(target) && !menuBtn.contains(target)) {
+            navLinks.classList.remove('open');
+            menuBtn.setAttribute('aria-expanded', 'false');
+        }
+    });
+
+    // Fechar com ESC
+    document.addEventListener('keydown', (evt) => {
+        if (evt.key === 'Escape' && navLinks.classList.contains('open')) {
+            navLinks.classList.remove('open');
+            menuBtn.setAttribute('aria-expanded', 'false');
+        }
+    });
+})();
+
+// Smooth links
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', (ev) => {
+        const href = a.getAttribute('href');
+        if (href.length > 1) {
+            ev.preventDefault();
+            document.querySelector(href).scrollIntoView({ behavior: 'smooth' });
+        }
     });
 });
 
-// Fecha o menu ao clicar fora (na página)
-document.addEventListener('click', (evt) => {
-    const target = evt.target;
-    // se o menu estiver aberto e o click não for no menu nem no botão, fecha
-    if (navLinks.classList.contains('open') && !navLinks.contains(target) && !menuBtn.contains(target)) {
-    navLinks.classList.remove('open');
-    menuBtn.setAttribute('aria-expanded', 'false');
-    }
-});
+// Envio do formulário (Formspree)
+(function () {
+    const form = document.querySelector("form[action*='formspree']");
+    if (!form) return;
 
-// Fecha o menu ao pressionar ESC
-document.addEventListener('keydown', (evt) => {
-    if (evt.key === 'Escape' && navLinks.classList.contains('open')) {
-    navLinks.classList.remove('open');
-    menuBtn.setAttribute('aria-expanded', 'false');
-    }
-});
+    form.addEventListener("submit", async (e) => {
+        e.preventDefault();
+
+        const dados = new FormData(form);
+
+        const resposta = await fetch(form.action, {
+            method: "POST",
+            body: dados,
+            headers: { Accept: "application/json" },
+        });
+
+        if (resposta.ok) {
+            alert("Mensagem enviada com sucesso! 👍");
+            form.reset();
+        } else {
+            alert("Erro ao enviar a mensagem. Tente novamente mais tarde.");
+        }
+    });
 })();
-//
-function openProject(id){
-alert('Abrir projeto ' + id + ' — substitua por modal/custom lightbox.');
-}
 
-// Submissão fake do formulário
-function submitForm(e){
-e.preventDefault();
-const f = e.target;
-const nome = f.nome.value.trim();
-const mail = f.email.value.trim();
-if(!nome || !mail){
-alert('Preencha nome e email.');
-return;
-}
-
-// --- Função para Atualizar Automaticamente o Ano de Copyright ---
-(function() {
+// Atualizar ano
+(function () {
     const yearElement = document.getElementById('current-year');
-    
-    // Verifica se o elemento foi encontrado na página
     if (yearElement) {
-        // Obtém o ano atual (ex: 2025)
-        const currentYear = new Date().getFullYear();
-        
-        // Atualiza o conteúdo do elemento com o ano atual
-        yearElement.textContent = currentYear;
+        yearElement.textContent = new Date().getFullYear();
     }
 })();
 
-// Aqui você pode adicionar fetch/ajax para enviar o formulário ao seu servidor
-f.reset();
-alert('Mensagem enviada! (exemplo, configure envio real no backend)');
-}
+// ===== Alternância de Tema Claro / Escuro =====
+(function () {
+    const btn = document.getElementById('themeToggle');
+    if (!btn) return;
 
-// Smooth links
-document.querySelectorAll('a[href^="#"]').forEach(a=>{
-a.addEventListener('click', (ev)=>{
-const href = a.getAttribute('href');
-if(href.length>1){
-ev.preventDefault();
-document.querySelector(href).scrollIntoView({behavior:'smooth'});
-}
+    // Carregar preferência salva
+    if (localStorage.getItem('theme') === 'dark') {
+        document.documentElement.classList.add('dark');
+        btn.textContent = "☀️";
+    }
 
-// Envio de formulário via Formspree
-document.getElementById("contactForm").addEventListener("submit", async (e) => {
-  e.preventDefault();
-  const form = e.target;
-  const dados = new FormData(form);
+    btn.addEventListener('click', () => {
+        document.documentElement.classList.toggle('dark');
 
-  const resposta = await fetch(form.action, {
-    method: "POST",
-    body: dados,
-    headers: { Accept: "application/json" },
-  });
-
-  if (resposta.ok) {
-    alert("Mensagem enviada com sucesso! 👍");
-    form.reset();
-  } else {
-    alert("Erro ao enviar a mensagem. Tente novamente mais tarde.");
-  }
-});
-
-})
-})
+        const isDark = document.documentElement.classList.contains('dark');
+        btn.textContent = isDark ? "☀️" : "🌙";
+        localStorage.setItem('theme', isDark ? 'dark' : 'light');
+    });
+})();
 
