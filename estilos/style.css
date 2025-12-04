@@ -66,10 +66,6 @@ html.dark nav a:hover {
     cursor: pointer;
 }
 
-html.dark strong {
-    color: var(--azul) !important;
-}
-
 html.dark footer {
     border-top: 1px solid white;
 }
@@ -118,6 +114,17 @@ header {
     gap: 16px;
     padding: 10px 6px;
 }
+
+/* Animação no botão de tema */
+.theme-btn {
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.theme-btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.18);
+}
+
 
 html.dark .menu-btn { 
     color: white;    
@@ -300,7 +307,7 @@ p.lead{
 }
 
 #sobre strong {
-    color: var(--azul);
+    color: var(--preto);
 }
 
 /* Cards à direita */
@@ -385,6 +392,10 @@ div.card.service div.center div.icon {
     margin: auto;
 }
 
+div.title {
+    text-align: center;
+}
+
 .card center {
     flex-direction: row;
     gap: 12px;
@@ -406,6 +417,17 @@ div.card.service div.center div.icon {
     margin-top: 10px;
     color: #6b7b86;
 }
+
+/* Animação nos cards de Serviços */
+.services .service {
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.services .service:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 24px rgba(0,0,0,0.12);
+}
+
 
 /* GRID */
 .portfolio-grid {
