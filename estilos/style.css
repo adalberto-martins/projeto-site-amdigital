@@ -119,6 +119,11 @@ header {
     padding: 10px 6px;
 }
 
+html.dark .menu-btn { 
+    color: white;
+    
+}
+
 .brand {
     display: flex;
     align-items: center;
