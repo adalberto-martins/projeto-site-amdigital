@@ -355,6 +355,10 @@ p.lead{
     color: var(--preto);
 }
 
+#sobre strong.texto {
+    color: #0070c0;
+}
+
 #sobre .muted {
     color: #6b7b86;
     font-size: 14px;
