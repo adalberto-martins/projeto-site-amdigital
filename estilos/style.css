@@ -66,6 +66,8 @@ html.dark nav a:hover {
     cursor: pointer;
 }
 
+
+
 html.dark footer {
     border-top: 1px solid white;
 }
@@ -73,6 +75,15 @@ html.dark footer {
 html.dark div#copyright-text {
     color: var(--texto-muted);
 }
+
+html.dark div.title {
+    color: var(--texto); /* Branco do modo dark */
+}
+
+html.dark .service small {
+    color: var(--texto-muted); 
+}
+
 
 *{
     margin: 0;
@@ -306,10 +317,6 @@ p.lead{
     margin-bottom: 16px;
 }
 
-#sobre strong {
-    color: var(--preto);
-}
-
 /* Cards à direita */
 #sobre .card {
     background: linear-gradient(180deg, rgba(255,255,255,0.9), var(--branco));
@@ -401,6 +408,11 @@ div.title {
     gap: 12px;
 }
 
+#service .card strong.card2 {
+    color: red;
+
+}
+
 .services {
     display: grid;
     grid-template-columns: repeat(4,1fr);
@@ -415,7 +427,7 @@ div.title {
 .service small {
     display: block;
     margin-top: 10px;
-    color: #6b7b86;
+    color: var(--texto-muted);
 }
 
 /* Animação nos cards de Serviços */
