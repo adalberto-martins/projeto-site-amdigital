@@ -1,13 +1,53 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Saiba Mais - AM Digital</title>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Estilos globais -->
-  <link rel="stylesheet" href="estilos/style.css">
-  <link rel="stylesheet" href="estilos/mediaquery.css">
+    <!-- SEO PRINCIPAL -->
+    <title>Sobre a AM Digital — Quem Somos, Missão e Propósito</title>
+    <meta name="description" content="Conheça a AM Digital: nossa história, missão e compromisso em oferecer tecnologia, design e criação de sites profissionais com foco em resultados.">
+    <link rel="canonical" href="https://www.amdigital.net.br/saibamais.html">
+
+    <!-- PALAVRAS-CHAVE -->
+    <meta name="keywords" content="sobre am digital, quem somos, empresa de tecnologia, criação de sites, desenvolvimento web, Piracicaba">
+
+    <!-- OPEN GRAPH / REDES SOCIAIS -->
+    <meta property="og:title" content="AM Digital — Sobre Nós">
+    <meta property="og:description" content="Conheça a AM Digital: desenvolvimento web, design e soluções tecnológicas feitas para conectar marcas e pessoas.">
+    <meta property="og:image" content="https://www.amdigital.net.br/imagens/logo-na-vertical-light.png">
+    <meta property="og:url" content="https://www.amdigital.net.br/saibamais.html">
+    <meta property="og:type" content="website">
+
+    <!-- TWITTER CARD -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AM Digital — Sobre Nós">
+    <meta name="twitter:description" content="História e propósito da AM Digital: tecnologia, inovação e soluções web profissionais.">
+    <meta name="twitter:image" content="https://www.amdigital.net.br/imagens/logo-na-vertical-light.png">
+
+    <!-- JSON-LD LocalBusiness (versão simplificada para páginas internas) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "AM Digital",
+      "url": "https://www.amdigital.net.br/saibamais.html",
+      "image": "https://www.amdigital.net.br/imagens/logo-na-vertical-light.png",
+      "sameAs": [
+        "https://www.amdigital.net.br/"
+      ]
+    }
+    </script>
+
+    <!-- FONTES / ÍCONES / CSS -->
+    <link rel="shortcut icon" href="imagens/favicon1.ico" type="image/x-icon">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="estilos/style.css">
+    <link rel="stylesheet" href="estilos/mediaquery.css">
+    <script src="https://kit.fontawesome.com/e2c5db69a2.js" crossorigin="anonymous"></script>
+</head>
+
 
   <style>
     body {
@@ -93,10 +133,15 @@
 <body>
   <div class="page">
     <header>
-      <img src="imagens/logo-na-vertical.png" alt="AM Digital Logo">
+       <img src="imagens/logo-na-vertical-light.png"
+          data-light="imagens/logo-na-vertical-light.png"
+          data-dark="imagens/logo-na-vertical-dark.png"
+          class="swap-theme-img"
+          alt="AM Digital - logo">
       <nav>
         <a href="index.html" class="btn-primary" style="font-size:14px;padding:8px 16px;">Voltar ao Início</a>
       </nav>
+      <button id="themeToggle" class="theme-btn" style="font-size:22px;">🌙</button>
     </header>
 
     <section id="saiba-mais" class="section">
@@ -141,7 +186,11 @@
 
     <footer>
       <div style="display: flex;gap: 12px;align-items: center;">
-                <img src="imagens/hero-art.png" alt="AM Digital" style="width: 86px;">
+                <img src="imagens/hero-art-light.png"
+                    data-light="imagens/hero-art-light.png"
+                    data-dark="imagens/hero-art-dark.png"
+                    class="swap-theme-img"
+                    alt="AM Digital - hero" style="width: 86px;">
                 <div id="copyright-text">&copy;<span id="current-year">2025</span> AM Digital — Todos os direitos reservados</div>
             </div>
             <div class="muted">Feito com ♥ por AM Digital</div>
