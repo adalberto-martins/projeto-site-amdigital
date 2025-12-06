@@ -643,3 +643,44 @@ footer {
     justify-content:space-between;
     align-items: center;
 }
+
+/* ==== ANIMAÇÃO HERO ==== */
+
+.hero-visual .hero-copy > * {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: heroFade 0.8s ease forwards;
+}
+
+.hero-visual .hero-copy h1 {
+    animation-delay: 0.2s;
+}
+
+.hero-visual .hero-copy p {
+    animation-delay: 0.45s;
+}
+
+.hero-visual .hero-copy div {
+    animation-delay: 0.7s;
+}
+
+@keyframes heroFade {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==== ANIMAÇÕES AO ROLAR ==== */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.7s ease;
+}
+
+.reveal.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
