@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- SEO -->
+    <title>Solicitar Orçamento — AM Digital</title>
+    <meta name="description" content="Solicite um orçamento personalizado para criação de sites, sistemas e soluções tecnológicas. Receba cálculo automático do valor estimado.">
+    <link rel="canonical" href="https://www.amdigital.net.br/orcamento.html">
+
+    <!-- Redes -->
+    <meta property="og:title" content="Orçamento — AM Digital">
+    <meta property="og:description" content="Peça seu orçamento e receba estimativa automática de valores.">
+    <meta property="og:image" content="https://www.amdigital.net.br/imagens/logo-na-vertical-light.png">
+    <meta property="og:url" content="https://www.amdigital.net.br/orcamento.html">
+
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="estilos/style.css">
+    <link rel="stylesheet" href="estilos/mediaquery.css">
+    <link rel="shortcut icon" href="imagens/favicon1.ico">
+</head>
+
+<body>
+<div class="page">
+
+    <!-- HEADER -->
+    <header>
+        <div class="brand">
+            <img src="imagens/logo-na-vertical-light.png"
+                data-light="imagens/logo-na-vertical-light.png"
+                data-dark="imagens/logo-na-vertical-dark.png"
+                class="swap-theme-img" alt="AM Digital">
+        </div>
+        <nav>
+            <a href="index.html">Início</a>
+            <a href="saibamais.html">Sobre</a>
+            <a href="portfolio.html">Portfólio</a>
+            <a href="#" class="active">Orçamento</a>
+        </nav>
+        <button id="themeToggle" class="theme-btn">🌙</button>
+    </header>
+
+    <!-- TÍTULO -->
+    <section class="section reveal" style="text-align:center;">
+        <h2 style="font-size:36px;">Solicitar Orçamento</h2>
+        <p class="lead" style="max-width:700px;margin:auto;">
+            Preencha os campos abaixo e veja o valor estimado conforme suas escolhas.
+        </p>
+    </section>
+
+    <!-- FORMULÁRIO AVANÇADO -->
+    <section class="section reveal">
+        <div class="card" style="max-width:800px;margin:auto;">
+            
+            <form id="orcamentoForm">
+
+                <!-- TIPO DE PROJETO -->
+                <label><strong>Tipo de Projeto</strong></label>
+                <select id="tipoProjeto" required>
+                    <option value="">Selecione...</option>
+                    <option value="institucional">Site Institucional</option>
+                    <option value="landing">Landing Page</option>
+                    <option value="loja">Loja Virtual</option>
+                    <option value="sistema">Sistema Web Completo</option>
+                </select>
+
+                <!-- TIPO DE DESIGN -->
+                <label><strong>Tipo de Design</strong></label>
+                <select id="tipoDesign" required>
+                    <option value="">Selecione...</option>
+                    <option value="simples">Simples</option>
+                    <option value="pro">Profissional</option>
+                    <option value="premium">Premium</option>
+                </select>
+
+                <!-- URGÊNCIA -->
+                <label><strong>Urgência</strong></label>
+                <select id="urgencia" required>
+                    <option value="">Selecione...</option>
+                    <option value="normal">Entrega Normal</option>
+                    <option value="rapida">Entrega Rápida</option>
+                    <option value="urgente">Projeto Urgente</option>
+                </select>
+
+                <!-- CAMPO DE DETALHES -->
+                <label><strong>Informações adicionais</strong></label>
+                <textarea id="detalhes" placeholder="Descreva melhor o projeto..."></textarea>
+
+                <!-- VALOR -->
+                <div class="card" style="text-align:center;margin-top:20px;">
+                    <h3>Estimativa de Preço</h3>
+                    <p id="valorEstimado" style="font-size:24px;font-weight:700;color:var(--azul);">
+                        R$ 0,00
+                    </p>
+                </div>
+
+                <!-- ENVIAR -->
+                <div class="btn-container">
+                    <button type="submit" class="btn-enviar">Enviar Pedido de Orçamento</button>
+                </div>
+
+            </form>
+
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div style="display:flex;align-items:center;gap:12px;">
+            <img src="imagens/hero-art-light.png"
+                data-light="imagens/hero-art-light.png"
+                data-dark="imagens/hero-art-dark.png"
+                class="swap-theme-img" style="width:86px;">
+            <div>&copy;<span id="current-year">2025</span> AM Digital — Todos os direitos reservados</div>
+        </div>
+        <div class="muted">Feito com ♥ por AM Digital</div>
+    </footer>
+
+</div>
+
+<script src="scripts/script.js"></script>
+
+<!-- SCRIPT DO CÁLCULO -->
+<script>
+document.addEventListener("change", calcular);
+
+function calcular() {
+    let preco = 0;
+
+    // Tipo de Projeto
+    const projeto = document.getElementById("tipoProjeto").value;
+    if (projeto === "institucional") preco += 1500;
+    if (projeto === "landing") preco += 900;
+    if (projeto === "loja") preco += 2500;
+    if (projeto === "sistema") preco += 5000;
+
+    // Tipo de Design
+    const design = document.getElementById("tipoDesign").value;
+    if (design === "simples") preco += 200;
+    if (design === "pro") preco += 600;
+    if (design === "premium") preco += 1200;
+
+    // Urgência
+    const urgencia = document.getElementById("urgencia").value;
+    if (urgencia === "rapida") preco *= 1.2;
+    if (urgencia === "urgente") preco *= 1.4;
+
+    // Atualiza valor na tela
+    document.getElementById("valorEstimado").innerText =
+        preco > 0 ? "R$ " + preco.toFixed(2).replace(".", ",") : "R$ 0,00";
+}
+</script>
+
+<a href="#" data-whatsapp id="whats-btn" class="whats-float">
+    <i class="fa fa-whatsapp"></i>
+</a>
+
+
+</body>
+</html>
