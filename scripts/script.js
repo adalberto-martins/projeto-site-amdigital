@@ -1,5 +1,5 @@
 // Aplicar número do WhatsApp vindo da variável CSS
-(function () {
+document.addEventListener('DOMContentLoaded', function () {
     const rootStyles = getComputedStyle(document.documentElement);
     const numero = rootStyles.getPropertyValue('--whatsapp-numero').replace(/"/g, "").trim();
 
@@ -8,7 +8,8 @@
     linkWhats.forEach(link => {
         link.href = `https://wa.me/${numero}`;
     });
-})();
+});
+
 
 // MENU MOBILE — toggle + fechar ao clicar fora + fechar ao clicar em link
 (function () {
