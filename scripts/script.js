@@ -155,3 +155,23 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
     }
 })();
 
+// ==== ANIMAÇÃO AO ROLAR ====
+// Usa IntersectionObserver (melhor performance que scroll)
+(function () {
+    const elements = document.querySelectorAll('.reveal');
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('show');
+                observer.unobserve(entry.target); // anima só 1 vez
+            }
+        });
+    }, {
+        threshold: 0.15 // 15% do elemento visível já ativa
+    });
+
+    elements.forEach(el => observer.observe(el));
+})();
+
+
