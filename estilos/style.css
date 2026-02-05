@@ -41,9 +41,12 @@ body {
     box-shadow: 0 10px 30px var(--shadow);
 }
 
-p.lead,
-.muted {
+p.lead {
     color: var(--texto-muted);
+}
+
+.muted {
+    color: #3f4143;
 }
 
 .card {
