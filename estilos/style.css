@@ -189,6 +189,12 @@ nav a:hover {
 nav a.active::after {
     width: 100%;
 }
+
+/* Quando o mouse estiver sobre o menu,
+   remove visualmente o ativo */
+nav:hover a.active::after {
+    width: 0;
+}
  
 
 .cta {
