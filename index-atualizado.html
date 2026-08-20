@@ -157,16 +157,74 @@
         <section id="contato" class="section">
             <h2 class="reveal">Contato</h2>
             <div class="card">
-                <form action="https://formspree.io/f/xrbobzkg" method="POST" class="reveal">
+                <form id="form-contato" action="https://SEU-N8N.exemplo.com.br/webhook/contato" method="POST" class="reveal">
                     <input type="text" name="nome" placeholder="Seu nome" required />
                     <input type="email" name="email" placeholder="Seu email" required />
                     <input type="text" name="assunto" placeholder="Assunto" />
                     <textarea name="mensagem" placeholder="Escreva sua mensagem" required></textarea>
 
+                    <!-- Honeypot anti-spam: campo invisível que só bots preenchem -->
+                    <input type="text" name="_honeypot" style="display:none" tabindex="-1" autocomplete="off" />
+
                     <div class="btn-container">
                         <button type="submit" class="btn-enviar">Enviar Mensagem</button>
                     </div>
-                </form>                                
+
+                    <p id="form-status" style="margin-top:10px;display:none;"></p>
+                </form>
+
+                <script>
+                (function () {
+                    const form = document.getElementById('form-contato');
+                    const status = document.getElementById('form-status');
+                    const btn = form.querySelector('.btn-enviar');
+
+                    form.addEventListener('submit', async function (e) {
+                        e.preventDefault();
+
+                        if (form._honeypot && form._honeypot.value) {
+                            status.textContent = 'Mensagem enviada com sucesso!';
+                            status.style.color = 'var(--verde)';
+                            status.style.display = 'block';
+                            form.reset();
+                            return;
+                        }
+
+                        const dados = {
+                            nome: form.nome.value,
+                            email: form.email.value,
+                            assunto: form.assunto.value,
+                            mensagem: form.mensagem.value
+                        };
+
+                        btn.disabled = true;
+                        btn.textContent = 'Enviando...';
+                        status.style.display = 'none';
+
+                        try {
+                            const resposta = await fetch(form.action, {
+                                method: 'POST',
+                                headers: { 'Content-Type': 'application/json' },
+                                body: JSON.stringify(dados)
+                            });
+
+                            if (!resposta.ok) throw new Error('Falha no envio');
+
+                            status.textContent = 'Mensagem enviada com sucesso! Em breve entraremos em contato.';
+                            status.style.color = 'var(--verde)';
+                            status.style.display = 'block';
+                            form.reset();
+                        } catch (err) {
+                            status.textContent = 'Não foi possível enviar agora. Tente novamente ou fale pelo WhatsApp/e-mail ao lado.';
+                            status.style.color = 'var(--vermelho)';
+                            status.style.display = 'block';
+                        } finally {
+                            btn.disabled = false;
+                            btn.textContent = 'Enviar Mensagem';
+                        }
+                    });
+                })();
+                </script>
             </div>
         </section>
 
