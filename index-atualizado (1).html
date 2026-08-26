@@ -45,6 +45,20 @@
 
     <link rel="stylesheet" href="estilos/style.css">
     <link rel="stylesheet" href="estilos/mediaquery.css">
+
+    <!-- Correção de contraste no tema escuro (título/texto de cards
+         de serviço e parágrafos "lead" ficavam ilegíveis) -->
+    <style>
+        html.dark .lead {
+            color: #cbd5e1;
+        }
+        html.dark .card.service .title {
+            color: #f1f5f9;
+        }
+        html.dark .card.service small {
+            color: #94a3b8;
+        }
+    </style>
 </head>
 <body>
     <div class="page" role="main">
@@ -135,16 +149,22 @@
                 </div>
                 <div style="flex:1;min-width:260px;display:flex;flex-wrap:wrap;gap:14px">
                     <div class="card center" style="flex:1;min-width:110px">
-                        <strong style="color:var(--azul);font-size:1.3rem;display:block">R$ 99,90</strong>
-                        <small>plano de entrada / mês</small>
+                        <div style="display:flex;flex-direction:column;align-items:center;text-align:center">
+                            <strong style="color:var(--azul);font-size:1.3rem">R$ 99,90</strong>
+                            <small>plano de entrada / mês</small>
+                        </div>
                     </div>
                     <div class="card center" style="flex:1;min-width:110px">
-                        <strong style="color:var(--verde);font-size:1.3rem;display:block">Minutos</strong>
-                        <small>pra começar a usar</small>
+                        <div style="display:flex;flex-direction:column;align-items:center;text-align:center">
+                            <strong style="color:var(--verde);font-size:1.3rem">Minutos</strong>
+                            <small>pra começar a usar</small>
+                        </div>
                     </div>
                     <div class="card center" style="flex:1;min-width:110px">
-                        <strong style="color:var(--vermelho);font-size:1.3rem;display:block">Sem fidelidade</strong>
-                        <small>cancele quando quiser</small>
+                        <div style="display:flex;flex-direction:column;align-items:center;text-align:center">
+                            <strong style="color:var(--vermelho);font-size:1.3rem">Sem fidelidade</strong>
+                            <small>cancele quando quiser</small>
+                        </div>
                     </div>
                 </div>
             </div>
